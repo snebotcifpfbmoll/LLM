@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+</html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div class="main">
+        <div id="section">
+            <h2>Datos personales</h2>
+            <hr/>
+            <form action="">
+                <h3>Nombre:</h3>
+                <input type="text" name="nom">
+                <h3>Apellidos:</h3>
+                <input type="text" name="apellidos">
+                <h3>DNI:</h3>
+                <input type="text" name="dni">
+                <h3>Localidad de nacimiento:</h3>
+                <input type="text" name="local-nacimiento">
+                <h3>Provincia:</h3>
+                <input type="text" name="provincia">
+                <h3>Fecha de nacimiento:</h3>
+                <input type="date" name="fecha-nacimiento">
+                <h3>Edad:</h3>
+                <input type="number" name="edad">
+                <h3>Dirección:</h3>
+                <input type="text" name="direccion">
+                <h3>Código postal:</h3>
+                <input type="number" name="c-postal">
+    
+            </form>
+        </div>
+        <div id="section">
+            <h2>Forma de acceso</h2>
+            <hr/>
+            <form action="">
+                <input type="radio" name="tipo-acceso"> Directo<br/>
+                <input type="radio" name="tipo-acceso"> Prueba de acceso<br/>
+            </form>
+        </div>
+        <div id="section">
+            <h2>Documentos adjuntados:</h2>
+            <hr/>
+            <form action="">
+                <input type="checkbox" name="doc-adj"> Fotocopia DNI<br/>
+                <input type="checkbox" name="doc-adj"> Certificado académico<br/>
+                <input type="checkbox" name="doc-adj"> Otros<br/>
+                <p>Adjunta los documentos:</p>
+                <input type="file" name="doc-adj">
+            </form>
+        </div>
+        <!-- Submit button -->
+        <input type="submit" name="submit" value="Enviar">
+    </div>
+</body>
+</html>

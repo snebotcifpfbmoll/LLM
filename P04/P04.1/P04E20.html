@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript">
+        function getInput() {
+            var text = document.getElementById("inputText")
+            var result = document.getElementById("result")
+            result.innerHTML += text.value
+            text.value = ""
+        }
+    </script>
+    <body>
+        <form>
+            <input id="inputText" type="text"></input>
+            <button type="button" onClick="getInput()">Enviar</button>
+        </form>
+        <div id="result"></div>
+    </body>
+</html>

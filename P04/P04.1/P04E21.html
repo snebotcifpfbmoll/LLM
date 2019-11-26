@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript">
+        function send() {
+            var text = document.getElementById("text")
+            var llista = document.getElementById("llista")
+            llista.innerHTML += "<li>"+text.value+"</li>"
+            text.value = ""
+        }
+    </script>
+    <body>
+        <form>
+            <input id="text" type="text"></input>
+            <button type="button" onClick="send()">Enviar</button>
+            <ul id="llista"></ul>
+        </form>
+    </body>
+</html>
