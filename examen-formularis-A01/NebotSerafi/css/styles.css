@@ -1,0 +1,152 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+              v2.0 | 20110126
+              License: none (public domain) */
+           html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+   blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+   ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+           dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+        tfoot, thead, tr, th, td,  article, aside, canvas, details, embed, figure,
+   figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+   time, mark, audio, video {
+               margin: 0;
+               padding: 0;
+               border: 0;
+               font-size: 100%;
+               font: inherit;
+               vertical-align: baseline;
+           }
+           /* HTML5 display-role reset for older browsers */
+           article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+    section {
+               display: block;
+           }
+           body {
+               line-height: 1;
+           }
+           ol, ul {
+               list-style: none;
+           }
+           blockquote, q {
+               quotes: none;
+           }
+           blockquote:before, blockquote:after, q:before, q:after {
+               content: '';
+               content: none;
+           }
+           table {
+               border-collapse: collapse;
+               border-spacing: 0;
+           }
+
+/* CSS propi */ 
+body {
+    background-color: #15b0d8;
+    font-family: Raleway;
+}
+
+.wrapper {
+    width: 960px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.wrapper .navbar {
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    display: flex;
+    text-align: center;
+}
+
+.wrapper .navbar a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.wrapper .principal {
+    height: 300px;
+    position: relative;
+    color: white;
+    margin: 0px;
+}
+
+.wrapper .principal img {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper .principal #titol {
+    position: absolute;
+    right: 80px;
+    bottom: 100px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.wrapper .principal #nom {
+    position: absolute;
+    right: 80px;
+    bottom: 70px;
+    font-size: 20px;
+}
+
+.wrapper .principal #link {
+    position: absolute;
+    right: 80px;
+    bottom: 50px;
+    font-size: 15px;
+}
+
+.wrapper .content {
+    background-color: #087ab2;
+    margin: 0px;
+}
+
+.wrapper .apartats {
+    width: 100%;
+    height: 210px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.wrapper .apartats #apartat {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .apartats #apartat p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrapper .apartats #apartat img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.wrapper .formulari {
+    height: 234px;
+    text-align: center;
+}
+
+.wrapper .formulari input {
+    margin: 20px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
+}
+
+.wrapper .formulari #enviar {
+    width: 110px;
+    height: 25px;
+    border-radius: 3px;
+    border: none;
+    background-color: #EEEEEE;
+    color: #929292;
+}
