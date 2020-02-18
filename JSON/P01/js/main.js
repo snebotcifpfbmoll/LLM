@@ -10,14 +10,28 @@ function carregarJSON() {
     assignatura.setAttribute("id", "nom_classe");
     assignatura.innerText = objJson.classe["@assignatura"];
 
-    // L'element profe sera un subtitol
+    // Element profe
     profe = document.createElement("div");
-    profe.innerHTML = "<h2>Professor</h2>";
-    profe.innerHTML += "<p>Nom: " + objJson.classe.professor.nom + "</p>";
+    //profe.setAttribute("id", "profe");
+
+    profe_titol = document.createElement("h2");
+    //profe_titol.setAttibute("id", "profe_titol");
+    profe_titol.innerText = "Professor";
+
+    profe_nom = document.createElement("p");
+    //profe_nom.setAttibute("id", "profe_nom");
+    profe_nom.innerText += "Nom: " + objJson.classe.professor.nom;
+
+    profe.appendChild(profe_titol);
+    profe.appendChild(profe_nom);
 
     // L'element alumnes contindra tots els alumnes dins de la classe
     alumnes = document.createElement("div");
-    alumnes.innerHTML += "<h2>Alumnes</h2>";
+    //alumnes.setAttribute("id", "alumnes");
+    alumnes_titol = document.createElement("h2");
+    //alumnes_titol.setAttribute("id", "alumnes_titol");
+    alumnes_titol.innerText += "Alumnes";
+    alumnes.appendChild(alumnes_titol);
 
     // Afegim tots els alumnes
     for (var i = 0; i < objJson.classe.alumnes.length; i ++) {
