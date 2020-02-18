@@ -1,0 +1,47 @@
+<classe assignatura="musica">
+	<professor>
+		<nom>Alvaro Clemente</nom>
+		<any_neixament>1960</any_neixament>
+		<anys_experiencia>35</anys_experiencia>
+	</professor>
+	<alumnes>
+		<alumne nom="Freddie Mercury">
+			<any_neixament>1946</any_neixament>
+			<nota_examen>9</nota_examen>
+			<nota_practica>Perfecte</nota_practica>
+			<descripcio>Si practica pot cantar bé</descripcio>
+		</alumne>
+	</alumnes>
+	<alumnes>
+		<alumne nom="John Lennon">
+			<any_neixament>1940</any_neixament>
+			<nota_examen>8</nota_examen>
+			<nota_practica>Notable</nota_practica>
+			<descripcio>Té bastanta imaginació</descripcio>
+		</alumne>
+	</alumnes>
+	<alumnes>
+		<alumne nom="Mark Knopfler">
+			<any_neixament>1949</any_neixament>
+			<nota_examen>9</nota_examen>
+			<nota_practica>Notable</nota_practica>
+			<descripcio>Comença a tocar la guitarra</descripcio>
+		</alumne>
+	</alumnes>
+	<alumnes>
+		<alumne nom="Justin Bieber">
+			<any_neixament>1994</any_neixament>
+			<nota_examen>0</nota_examen>
+			<nota_practica>Insuficient</nota_practica>
+			<descripcio>Sense comentaris</descripcio>
+		</alumne>
+	</alumnes>
+	<alumnes>
+		<alumne nom="Lemmy Kilmister">
+			<any_neixament>1945</any_neixament>
+			<nota_examen>3</nota_examen>
+			<nota_practica>Notable</nota_practica>
+			<descripcio>Jove molt sa.</descripcio>
+		</alumne>
+	</alumnes>
+</classe>

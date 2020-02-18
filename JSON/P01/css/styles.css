@@ -1,0 +1,7 @@
+body {
+    font-family: monospace;
+}
+
+#nom_classe {
+    text-transform: capitalize;
+}
