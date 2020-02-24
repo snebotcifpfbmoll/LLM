@@ -1,5 +1,5 @@
 function carregarJSON() {
-    const json = '{"classe":{"@assignatura":"musica","professor":{"nom":"Alvaro Clemente","any_neixament":"1960","anys_experiencia":"35"},"alumnes":[{"alumne":{"@nom":"Freddie Mercury","any_neixament":"1946","nota_examen":"9","nota_practica":"Perfecte","descripcio":"Si practica pot cantar b\u00e9"}},{"alumne":{"@nom":"John Lennon","any_neixament":"1940","nota_examen":"8","nota_practica":"Notable","descripcio":"T\u00e9 bastanta imaginaci\u00f3"}},{"alumne":{"@nom":"Mark Knopfler","any_neixament":"1949","nota_examen":"9","nota_practica":"Notable","descripcio":"Comen\u00e7a a tocar la guitarra"}},{"alumne":{"@nom":"Justin Bieber","any_neixament":"1994","nota_examen":"0","nota_practica":"Insuficient","descripcio":"Sense comentaris"}},{"alumne":{"@nom":"Lemmy Kilmister","any_neixament":"1945","nota_examen":"3","nota_practica":"Notable","descripcio":"Jove molt sa."}}]}}';
+    const json = '{"classe":{"@assignatura":"musica","professors":[{"professor":{"nom":"Alvaro Clemente","any_neixament":"1960","anys_experiencia":"35"}},{"professor":{"nom":"Dani Malo","any_neixament":"1969","anys_experiencia":"20"}}],"alumnes":[{"alumne":{"@nom":"Freddie Mercury","any_neixament":"1946","nota_examen":"9","nota_practica":"Perfecte","descripcio":"Si practica pot cantar bé"}},{"alumne":{"@nom":"John Lennon","any_neixament":"1940","nota_examen":"8","nota_practica":"Notable","descripcio":"Té bastanta imaginació"}},{"alumne":{"@nom":"Mark Knopfler","any_neixament":"1949","nota_examen":"9","nota_practica":"Notable","descripcio":"Comença a tocar la guitarra"}},{"alumne":{"@nom":"Justin Bieber","any_neixament":"1994","nota_examen":"0","nota_practica":"Insuficient","descripcio":"Sense comentaris"}},{"alumne":{"@nom":"Lemmy Kilmister","any_neixament":"1945","nota_examen":"3","nota_practica":"Notable","descripcio":"Jove molt sa."}}]}}';
     const objJson = JSON.parse(json);
 
     // Obtenir element div (contenidor)
@@ -10,26 +10,28 @@ function carregarJSON() {
     assignatura.setAttribute("id", "nom_classe");
     assignatura.innerText = objJson.classe["@assignatura"];
 
-    // Element profe
-    profe = document.createElement("div");
-    //profe.setAttribute("id", "profe");
+    // Professors
+    professors = document.createElement("div");
+    professors.setAttribute("id", "professors");
 
     profe_titol = document.createElement("h2");
-    //profe_titol.setAttibute("id", "profe_titol");
+    profe_titol.setAttribute("id", "profe_titol");
     profe_titol.innerText = "Professor";
+    professors.appendChild(profe_titol);
 
-    profe_nom = document.createElement("p");
-    //profe_nom.setAttibute("id", "profe_nom");
-    profe_nom.innerText += "Nom: " + objJson.classe.professor.nom;
-
-    profe.appendChild(profe_titol);
-    profe.appendChild(profe_nom);
+    for (var i = 0; i < objJson.classe.professors.length; i ++) {
+        objProfe = objJson.classe.professors[i];
+        profe = document.createElement("p");
+        profe.setAttribute("id", "profe_nom");
+        profe.innerText += "Nom: " + objProfe.professor.nom;
+        professors.appendChild(profe);
+    }
 
     // L'element alumnes contindra tots els alumnes dins de la classe
     alumnes = document.createElement("div");
-    //alumnes.setAttribute("id", "alumnes");
+    alumnes.setAttribute("id", "alumnes");
     alumnes_titol = document.createElement("h2");
-    //alumnes_titol.setAttribute("id", "alumnes_titol");
+    alumnes_titol.setAttribute("id", "alumnes_titol");
     alumnes_titol.innerText += "Alumnes";
     alumnes.appendChild(alumnes_titol);
 
@@ -47,6 +49,6 @@ function carregarJSON() {
 
     // Afegim tots els elements al document
     contenidor.appendChild(assignatura);
-    contenidor.appendChild(profe);
+    contenidor.appendChild(professors);
     contenidor.appendChild(alumnes);
 }

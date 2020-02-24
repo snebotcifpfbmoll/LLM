@@ -1,58 +1,68 @@
 {
-    "classe":
-    {
-        "@assignatura": "musica",
-        "professor": {
-            "nom": "Alvaro Clemente",
-            "any_neixament": "1960",
-            "anys_experiencia": "35"
-        },
-        "alumnes": [
-            {
-                "alumne": {
-                    "@nom": "Freddie Mercury",
-                    "any_neixament": "1946",
-                    "nota_examen": "9",
-                    "nota_practica": "Perfecte",
-                    "descripcio": "Si practica pot cantar bé"
-                }
-            },
-            {
-                "alumne": {
-                    "@nom": "John Lennon",
-                    "any_neixament": "1940",
-                    "nota_examen": "8",
-                    "nota_practica": "Notable",
-                    "descripcio": "Té bastanta imaginació"
-                }
-            },
-            {
-                "alumne": {
-                    "@nom": "Mark Knopfler",
-                    "any_neixament": "1949",
-                    "nota_examen": "9",
-                    "nota_practica": "Notable",
-                    "descripcio": "Comença a tocar la guitarra"
-                }
-            },
-            {
-                "alumne": {
-                    "@nom": "Justin Bieber",
-                    "any_neixament": "1994",
-                    "nota_examen": "0",
-                    "nota_practica": "Insuficient",
-                    "descripcio": "Sense comentaris"
-                }
-            },
-            {
-                "alumne": {
-                    "@nom": "Lemmy Kilmister",
-                    "any_neixament": "1945",
-                    "nota_examen": "3",
-                    "nota_practica": "Notable",
-                    "descripcio": "Jove molt sa."
-                }
+   "classe": {
+      "@assignatura": "musica",
+      "professors": [
+         {
+            "professor": {
+                  "nom": "Alvaro Clemente",
+                  "any_neixament": "1960",
+                  "anys_experiencia": "35"
             }
-        ]
-    }
+         },
+         {
+            "professor": {
+                  "nom": "Dani Malo",
+                  "any_neixament": "1969",
+                  "anys_experiencia": "20"
+            }
+         }
+      ],
+      "alumnes": [
+         {
+            "alumne": {
+               "@nom": "Freddie Mercury",
+               "any_neixament": "1946",
+               "nota_examen": "9",
+               "nota_practica": "Perfecte",
+               "descripcio": "Si practica pot cantar bé"
+            }
+         },
+         {
+            "alumne": {
+               "@nom": "John Lennon",
+               "any_neixament": "1940",
+               "nota_examen": "8",
+               "nota_practica": "Notable",
+               "descripcio": "Té bastanta imaginació"
+            }
+         },
+         {
+            "alumne": {
+               "@nom": "Mark Knopfler",
+               "any_neixament": "1949",
+               "nota_examen": "9",
+               "nota_practica": "Notable",
+               "descripcio": "Comença a tocar la guitarra"
+            }
+         },
+         {
+            "alumne": {
+               "@nom": "Justin Bieber",
+               "any_neixament": "1994",
+               "nota_examen": "0",
+               "nota_practica": "Insuficient",
+               "descripcio": "Sense comentaris"
+            }
+         },
+         {
+            "alumne": {
+               "@nom": "Lemmy Kilmister",
+               "any_neixament": "1945",
+               "nota_examen": "3",
+               "nota_practica": "Notable",
+               "descripcio": "Jove molt sa."
+            }
+         }
+      ]
+   }
 }

@@ -1,9 +1,11 @@
 <classe assignatura="musica">
-	<professor>
-		<nom>Alvaro Clemente</nom>
-		<any_neixament>1960</any_neixament>
-		<anys_experiencia>35</anys_experiencia>
-	</professor>
+        <professors>
+	    <professor>
+		    <nom>Alvaro Clemente</nom>
+		    <any_neixament>1960</any_neixament>
+		    <anys_experiencia>35</anys_experiencia>
+	    </professor>
+        </professors>
 	<alumnes>
 		<alumne nom="Freddie Mercury">
 			<any_neixament>1946</any_neixament>
