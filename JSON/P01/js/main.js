@@ -1,53 +1,40 @@
+function crearProfessor(nom, any, exp) {
+    var professor = new Object();
+    professor.nomComplet = nom;
+    professor.any_neixament = any;
+    professor.anys_experiencia = exp;
+    return professor;
+}
+
+function crearAlumne(nom, any, notaex, notap, desc) {
+    var alumne = new Object();
+    alumne.nomComplet = nom;
+    alumne.anyNaixement = any;
+    alumne.notaex = notaex;
+    alumne.notaPractica = notap;
+    alumne.descripcio = desc;
+    return alumne;
+}
+
+function crearClasse(tipus, arrProfessors, arrAlumnes) {
+    var classe = new Object();
+    classe.tipus = tipus;
+    classe.professors = arrProfessors;
+    classe.alumnes = arrAlumnes;
+    return classe;
+}
+
 function crearJSON() {
     var arrayProfessors = new Array();
-
-    var professor = new Object();
-    professor.nomComplet = "Alvaro Clemente";
-    professor.any_neixament = "1960";
-    professor.anys_experiencia = "35";
-
-    arrayProfessors.push(professor);
-
-    professor = new Object();
-    professor.nomComplet = "Dani El Malo";
-    professor.any_neixament = "1969";
-    professor.anys_experiencia = "20";
-
-    arrayProfessors.push(professor);
+    arrayProfessors.push(crearProfessor("Alvaro Clemente", "1960", "35"));
+    arrayProfessors.push(crearProfessor("Dani El Malo", "1969", "20"));
 
     var arrayAlumnes = new Array();
+    arrayAlumnes.push(crearAlumne("Freddie Mercury", "1946", "9", "perfecte", "Si practica pot cantar bé"));
+    arrayAlumnes.push(crearAlumne("John Lennon", "1940", "9", "perfecte", "Te bastanta imaginació"));
+    arrayAlumnes.push(crearAlumne("Mark Knopfler", "1949", "8", "notable", "Comença a tocar la guitarra"));
 
-    var alumne = new Object();
-    alumne.nomComplet = "Freddie Mercury";
-    alumne.anyNaixement = "1946";
-    alumne.notaex = "9";
-    alumne.notaPractica = "perfecte";
-    alumne.descripcio = "Si practica pot cantar bé";
-
-    arrayAlumnes.push(alumne);
-
-    alumne = new Object();
-    alumne.nomComplet = "John Lennon";
-    alumne.anyNaixement = "1940";
-    alumne.notaex = "9";
-    alumne.notaPractica = "perfecte";
-    alumne.descripcio = "Té bastanta imaginació";
-
-    arrayAlumnes.push(alumne);
-
-    alumne = new Object();
-    alumne.nomComplet = "Mark Knopfler";
-    alumne.anyNaixement = "1949";
-    alumne.notaex = "8";
-    alumne.notaPractica = "notable";
-    alumne.descripcio = "Comença a tocar la guitarra";
-
-    arrayAlumnes.push(alumne);
-
-    var classe = new Object();
-    classe.tipus = "musica";
-    classe.professors = arrayProfessors;
-    classe.alumnes = arrayAlumnes;
+    var classe = crearClasse("musica", arrayProfessors, arrayAlumnes);
 
     var superclasse = new Object();
     superclasse.classe = classe;
