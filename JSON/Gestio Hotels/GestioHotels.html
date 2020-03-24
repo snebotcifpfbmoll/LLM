@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestió Hotels</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/GestioHotels.css">
+        <script type="text/javascript" src="js/GestioHotels.js"></script>
+    </head>
+    <body>
+        <!-- Titol -->
+        <header>
+            <h1>Gestió Hotels</h1>
+        </header>
+        <hr/>
+        <!-- Part principal (afegir/modificar hotels) -->
+        <main class="informacioHotels">
+            <h3>Dades hotels (* obligatori):</h3>
+            <div class="dadesHotel">
+                <label for="hotelNom">Nom *:</label>
+                <input type="text" id="hotelNom"/>
+            </div>
+            <div class="dadesHotel">
+                <label for="hotelEstrelles">Estrelles *:</label>
+                <input type="number" id="hotelEstrelles" min="1" max="5"/>
+            </div>
+            <div class="dadesHotel">
+                <button id="afegirBtn" onclick="afegirHotel()">Afegir</button>
+                <button id="modificarBtn" onclick="modificarHotel()">Modificar</button>
+                <button id="mostrarJsonBtn" onclick="mostrarJson()">Mostrar JSON</button>
+            </div>
+            <div class="dadesHotel">
+                <textarea id="textJson" rows="6" cols="50"></textarea>
+            </div>
+        </main>
+
+        <!-- Llistat d'hotels -->
+        <aside class="informacioHotels">
+            <h3>Hotels:</h3>
+            <ul id="llistaHotels"></ul>
+        </aside>
+
+        <footer>Hotels Nebot - v0.1</footer>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+header {
+    text-align: center;
+}
+
+.informacioHotels {
+    border: 1px solid black;
+    padding: 5px 10px;
+    margin: 10px;
+    float: left;
+    min-width: 400px;
+}
+
+.dadesHotel {
+    margin: 5px 0px;
+}
+
+footer {
+    border-top: 1px solid black;
+    padding: 15px;
+    margin-top: 20px;
+    clear: both;
+    text-align: center;
+}
+
+#modificarBtn {
+    /* El boto de modificar hotel ha d'estar amagat per defecte */
+    display: none;
+}
+
