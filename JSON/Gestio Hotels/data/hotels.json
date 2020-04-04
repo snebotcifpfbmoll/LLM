@@ -1,0 +1,231 @@
+[
+    {
+        "id": 0,
+        "nom": "Hotels Nebot",
+        "estrelles": 4,
+        "localitzacio": "Nebot, 23",
+        "permetMascotes": true,
+        "serveiNeteja": true,
+        "wifi": true,
+        "menjars": true,
+        "berenar": {
+            "carta": false,
+            "preu": 12,
+            "imposts": 21,
+            "preuTotal": 14,
+            "moneda": "euro"
+        },
+        "dinar": {
+            "carta": true,
+            "preu": null,
+            "imposts": null,
+            "preuTotal": null,
+            "moneda": "euro"
+        },
+        "sopar": {
+            "carta": true,
+            "preu": null,
+            "imposts": null,
+            "preuTotal": null,
+            "moneda": "euro"
+        },
+        "habitacions": [
+            {
+                "id": 0,
+                "mida": 22,
+                "llits": ["doble"],
+                "bany": true,
+                "minibar": true,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": true,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 12,
+                    "impostos": 21,
+                    "comissio": 6
+                }
+            },
+            {
+                "id": 1,
+                "mida": 15,
+                "llits": ["individual"],
+                "bany": true,
+                "minibar": false,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": false,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 9,
+                    "impostos": 21,
+                    "comissio": 4
+                }
+            },
+            {
+                "id": 2,
+                "mida": 28,
+                "llits": ["doble", "individual"],
+                "bany": true,
+                "minibar": true,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": true,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 22,
+                    "impostos": 21,
+                    "comissio": 11
+                }
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "nom": "Estrella",
+        "estrelles": 2,
+        "localitzacio": "Velazquez, 12",
+        "permetMascotes": false,
+        "serveiNeteja": false,
+        "wifi": true,
+        "menjars": true,
+        "berenar": {
+            "carta": true,
+            "preu": null,
+            "imposts": null,
+            "preuTotal": null,
+            "moneda": "euro"
+        },
+        "habitacions": [
+            {
+                "id": 0,
+                "mida": 12,
+                "llits": ["individual"],
+                "bany": true,
+                "minibar": false,
+                "permet_fumar": false,
+                "calefaccio": false,
+                "tv": false,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 8,
+                    "impostos": 21,
+                    "comissio": 3
+                }
+            },
+            {
+                "id": 1,
+                "mida": 12,
+                "llits": ["individual"],
+                "bany": true,
+                "minibar": false,
+                "permet_fumar": false,
+                "calefaccio": false,
+                "tv": false,
+                "telefon": false,
+                "preu": {
+                    "preu_net": 9,
+                    "impostos": 21,
+                    "comissio": 3
+                }
+            },
+            {
+                "id": 2,
+                "mida": 20,
+                "llits": ["doble", "individual"],
+                "bany": false,
+                "minibar": false,
+                "permet_fumar": false,
+                "calefaccio": false,
+                "tv": false,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 12,
+                    "impostos": 21,
+                    "comissio": 6 
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nom": "Miró",
+        "estrelles": 5,
+        "localitzacio": "Borja Moll, 34",
+        "permetMascotes": false,
+        "serveiNeteja": true,
+        "wifi": true,
+        "menjars": true,
+        "berenar": {
+            "carta": false,
+            "preu": 15,
+            "imposts": 21,
+            "preuTotal": 18,
+            "moneda": "euro"
+        },
+        "dinar": {
+            "carta": true,
+            "preu": null,
+            "imposts": null,
+            "preuTotal": null,
+            "moneda": "euro"
+        },
+        "sopar": {
+            "carta": true,
+            "preu": null,
+            "imposts": null,
+            "preuTotal": null,
+            "moneda": "euro"
+        },
+        "habitacions": [
+            {
+                "id": 0,
+                "mida": 18,
+                "llits": ["individual"],
+                "bany": true,
+                "minibar": true,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": true,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 13,
+                    "impostos": 21,
+                    "comissio": 6
+                }
+            },
+            {
+                "id": 1,
+                "mida": 17,
+                "llits": ["individual"],
+                "bany": true,
+                "minibar": false,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": false,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 10,
+                    "impostos": 21,
+                    "comissio": 5
+                }
+            },
+            {
+                "id": 2,
+                "mida": 28,
+                "llits": ["doble"],
+                "bany": true,
+                "minibar": true,
+                "permet_fumar": false,
+                "calefaccio": true,
+                "tv": true,
+                "telefon": true,
+                "preu": {
+                    "preu_net": 30,
+                    "impostos": 21,
+                    "comissio": 15 
+                }
+            }
+        ]
+    }
+]

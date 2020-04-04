@@ -15,21 +15,121 @@
         <!-- Part principal (afegir/modificar hotels) -->
         <main class="informacioHotels">
             <h3>Dades hotels (* obligatori):</h3>
+            <input type="hidden" id="hotelId" value=""/>
             <div class="dadesHotel">
-                <label for="hotelNom">Nom *:</label>
+                <label id="lblHotelNom" for="hotelNom">Nom *:</label>
                 <input type="text" id="hotelNom"/>
             </div>
             <div class="dadesHotel">
-                <label for="hotelEstrelles">Estrelles *:</label>
+                <label id="lblHotelEstrelles" for="hotelEstrelles">Estrelles *:</label>
                 <input type="number" id="hotelEstrelles" min="1" max="5"/>
             </div>
             <div class="dadesHotel">
-                <button id="afegirBtn" onclick="afegirHotel()">Afegir</button>
-                <button id="modificarBtn" onclick="modificarHotel()">Modificar</button>
-                <button id="mostrarJsonBtn" onclick="mostrarJson()">Mostrar JSON</button>
+                <label id="lblHotelLocalitzacio" for="hotelLocalitzacio">Direcció *: </label>
+                <input type="text" id="hotelLocalitzacio"/>
             </div>
             <div class="dadesHotel">
-                <textarea id="textJson" rows="6" cols="50"></textarea>
+                <label for="hotelPermetMascotes">Permet mascotes: </label>
+                <input type="checkbox" id="hotelPermetMascotes"/>
+            </div>
+            <div class="dadesHotel">
+                <label for="hotelServeiNeteja">Servei de neteja: </label>
+                <input type="checkbox" id="hotelServeiNeteja"/>
+            </div>
+            <div class="dadesHotel">
+                <label for="hotelWifi">WiFi: </label>
+                <input type="checkbox" id="hotelWifi"/>
+            </div>
+            <div class="dadesHotel">
+                <label for="hotelMenjars">Menjars: </label>
+                <input type="checkbox" id="hotelMenjars" onchange='canviarDisplay("hotelMenjars", "hotelDadesMenjars", true)'/>
+            </div>
+            <div class="dadesHotel">
+                <ul class="amagat" id="hotelDadesMenjars">
+                    <!-- Berenar -->
+                    <li>
+                        <label for="hotelBerenar" id="lblHotelBerenar">Berenar: </label>
+                        <input type="checkbox" id="hotelBerenar"/>
+
+                        <label for="hotelCartaBerenar" id="lblHotelCartaBerenar">A la carta: </label>
+                        <input type="checkbox" id="hotelCartaBerenar" onchange='canviarDisplay("hotelCartaBerenar", "hotelDadesBerenar", false)'/>
+
+                        <div id="hotelDadesBerenar">
+                            <label for="hotelPreuNetBerenar" id="lblHotelPreuNetBerenar">Preu net *: </label>
+                            <input type="number" id="hotelPreuNetBerenar" min="0" onchange='canviarPreuTotal("Berenar")'/>
+    
+                            <label for="hotelImpostBerenar" id="lblHotelImpostBerenar">Imposts *: </label>
+                            <input type="number" id="hotelImpostBerenar" min="0" onchange='canviarPreuTotal("Berenar")'/>
+    
+                            <label for="hotelPreuTotalBerenar" id="lblHotelPreuTotalBerenar">Preu total: </label>
+                            <input type="number" id="hotelPreuTotalBerenar" readonly/>
+    
+                            <label for="hotelMonedaBerenar" id="lblHotelMonedaBerenar">Moneda: </label>
+                            <select id="hotelMonedaBerenar">
+                                <option value="euro">Euro</option>
+                                <option value="usd">USD</option>
+                                <option value="lliura-esterlina">Lliura esterlina</option>
+                            </select>
+                        </div>
+                    </li>
+                    <!-- Dinar -->
+                    <li>
+                        <label for="hotelDinar" id="lblHotelDinar">Dinar: </label>
+                        <input type="checkbox" id="hotelDinar"/>
+
+                        <label for="hotelCartaDinar" id="lblHotelCartaDinar">A la carta: </label>
+                        <input type="checkbox" id="hotelCartaDinar" onchange='canviarDisplay("hotelCartaDinar", "hotelDadesDinar", false)'/>
+
+                        <div id="hotelDadesDinar">
+                            <label for="hotelPreuNetDinar" id="lblHotelPreuNetDinar">Preu net *: </label>
+                            <input type="number" id="hotelPreuNetDinar" min="0" onchange='canviarPreuTotal("Dinar")'/>
+    
+                            <label for="hotelImpostDinar" id="lblHotelImpostDinar">Imposts *: </label>
+                            <input type="number" id="hotelImpostDinar" min="0" onchange='canviarPreuTotal("Dinar")'/>
+    
+                            <label for="hotelPreuTotalDinar" id="lblHotelPreuTotalDinar">Preu total: </label>
+                            <input type="number" id="hotelPreuTotalDinar" readonly/>
+    
+                            <label for="hotelMonedaDinar" id="lblHotelMonedaDinar">Moneda: </label>
+                            <select id="hotelMonedaDinar">
+                                <option value="euro">Euro</option>
+                                <option value="usd">USD</option>
+                                <option value="lliura-esterlina">Lliura esterlina</option>
+                            </select>
+                        </div>
+                    </li>
+                    <!-- Sopar -->
+                    <li>
+                        <label for="hotelSopar" id="lblHotelSopar">Sopar: </label>
+                        <input type="checkbox" id="hotelSopar"/>
+
+                        <label for="hotelCartaSopar" id="lblHotelCartaSopar">A la carta: </label>
+                        <input type="checkbox" id="hotelCartaSopar" onchange='canviarDisplay("hotelCartaSopar", "hotelDadesSopar", false)'/>
+
+                        <div id="hotelDadesSopar">
+                            <label for="hotelPreuNetSopar" id="lblHotelPreuNetSopar">Preu net *: </label>
+                            <input type="number" id="hotelPreuNetSopar" min="0" onchange='canviarPreuTotal("Sopar")'/>
+    
+                            <label for="hotelImpostSopar" id="lblHotelImpostSopar">Imposts *: </label>
+                            <input type="number" id="hotelImpostSopar" min="0" onchange='canviarPreuTotal("Sopar")'/>
+    
+                            <label for="hotelPreuTotalSopar" id="lblHotelPreuTotalSopar">Preu total: </label>
+                            <input type="number" id="hotelPreuTotalSopar" readonly/>
+    
+                            <label for="hotelMonedaSopar" id="lblHotelMonedaSopar">Moneda: </label>
+                            <select id="hotelMonedaSopar">
+                                <option value="euro">Euro</option>
+                                <option value="usd">USD</option>
+                                <option value="lliura-esterlina">Lliura esterlina</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="dadesHotel">
+                <button id="afegirBtn" onclick="afegirHotel()">Afegir</button>
+                <button class="amagat" id="modificarBtn" onclick="guardarHotel()">Modificar</button>
+                <button id="mostrarJsonBtn" onclick="mostrarJson()">Mostrar JSON</button>
             </div>
         </main>
 
@@ -37,6 +137,9 @@
         <aside class="informacioHotels">
             <h3>Hotels:</h3>
             <ul id="llistaHotels"></ul>
+            <div class="textJson">
+                <textarea id="textBoxJson" rows="6" cols="50" readonly></textarea>
+            </div>
         </aside>
 
         <footer>Hotels Nebot - v0.1</footer>

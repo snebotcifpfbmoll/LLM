@@ -1,17 +1,53 @@
+html {
+    font-family: verdana;
+}
+
 header {
+    margin: 0px;
+    padding: 35px;
+    background-color: #1179a0;
     text-align: center;
+    color: white;
+}
+
+body {
+    margin: 0px;
+    background-color: #fdfaf3;
+}
+
+main {
+    background-color: #ec9670;
+    padding: 10px;
+}
+
+aside {
+    background-color: #a6cea0;
 }
 
 .informacioHotels {
     border: 1px solid black;
     padding: 5px 10px;
     margin: 10px;
-    float: left;
-    min-width: 400px;
 }
 
-.dadesHotel {
+.dadesHotel, .textJson {
     margin: 5px 0px;
+}
+
+.amagat {
+    display: none;
+}
+
+#hotelDadesMenjars li {
+    margin-left: 40px;
+}
+
+#hotelDadesBerenar, #hotelDadesDinar, #hotelDadesSopar {
+    display: inline;
+}
+
+input[type="number"] {
+    width: 40px;
 }
 
 footer {
@@ -20,10 +56,5 @@ footer {
     margin-top: 20px;
     clear: both;
     text-align: center;
+    font-family: "Lucida Console", Monaco, monospace;
 }
-
-#modificarBtn {
-    /* El boto de modificar hotel ha d'estar amagat per defecte */
-    display: none;
-}
-
