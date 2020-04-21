@@ -1,0 +1,65 @@
+html {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0px;
+    color: #383838;
+}
+
+header {
+    margin: 0px;
+    padding: 15px 35px;
+    background-color: #003580;
+    color: white;
+}
+
+main {
+    border: 1px solid blue;
+    overflow: auto;
+    margin: 20px 20px;
+}
+
+input, select {
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+}
+
+.filtresCerca, .resultatCerca {
+    float: left;
+    margin: 10px;
+    padding: 15px 25px;
+}
+
+.filtresCerca {
+    background-color: #ffa43e;
+    border-radius: 15px;
+}
+
+.filtresCerca label, p, ul {
+    margin: 10px 0px 0px;
+}
+
+.resultatCerca {
+    /* fer que ocupi la resta d'espai */
+    /* Solució: https://stackoverflow.com/questions/1260122/expand-a-div-to-fill-the-remaining-width */
+    /*float: none;
+    overflow: hidden;*/
+    border: 1px solid red;
+}
+
+.resultatPreu {
+    border: 1px solid green;
+    padding: 10px;
+    margin: 10px;
+    float: right;
+    width: 200px;
+    font-size: 18px;
+}
+
+.resultatPreu input {
+    width: 50px;
+    font-size: 15px;
+}

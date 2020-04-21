@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reserva d'hotels</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/DisponibilitatHotels.css">
+        <script type="text/javascript" src="js/DisponibilitatHotels.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Reserva d'hotels</h1>
+        </header>
+
+        <!-- Apartat principal -->
+        <main>
+            <div class="filtresCerca">
+                <h2>Cerca</h2>
+                
+                <label id="lblCercaTemporada" for="cercaTemporada">Temporada: </label>
+                <select id="cercaTemporada">
+                    <option value="alta">Alta</option>
+                    <option value="baixa">Baixa</option>
+                </select>
+
+                <br/>
+                <label id="lblCercaEstrelles" for="cercaEstrelles">Estrelles: </label>
+                <input type="number" id="cercaEstrelles" min="1" max="5"/>
+
+                <p>Habitacions</p>
+                <ul>
+                    <li>
+                        <label id="lblCercaHabitacionIndividuals" for="cercaHabitacionsIndividuals">Individuals: </label>
+                        <input type="number" id="cercaHabitacionsIndividuals" min="0"/>
+                    </li>
+                    <li>
+                        <label id="lblCercaHabitacionDobles" for="cercaHabitacionsDobles">Dobles: </label>
+                        <input type="number" id="cercaHabitacionsDobles" min="0"/>
+                    </li>
+                </ul>
+
+                <p>Serveis</p>
+                <ul>
+                    <li>
+                        <label id="lblCercaWifi" for="cercaWifi">Wifi: </label>
+                        <input type="checkbox" id="cercaWifi"/>
+                    </li>
+                    <li>
+                        <label id="lblCercaNeteja" for="cercaNeteja">Neteja: </label>
+                        <input type="checkbox" id="cercaNeteja"/>
+                    </li>
+                    <li>
+                        <label id="lblCercaMascotes" for="cercaMascotes">Permet mascotes: </label>
+                        <input type="checkbox" id="cercaMascotes"/>
+                    </li>
+                </ul>
+
+                <p>Menjars</p>
+                <ul>
+                    <li>
+                        <label id="lblCercaBerenar" for="cercaBerenar">Berenar: </label>
+                        <input type="checkbox" id="cercaBerenar"/>
+                    </li>
+                    <li>
+                        <label id="lblCercaDinar" for="cercaDinar">Dinar: </label>
+                        <input type="checkbox" id="cercaDinar"/>
+                    </li>
+                    <li>
+                        <label id="lblCercaSopar" for="cercaSopar">Sopar: </label>
+                        <input type="checkbox" id="cercaSopar"/>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="resultatCerca">
+                <div class="resultatHabitacio">
+                </div>
+            </div>
+
+            <div class="resultatPreu">
+                <label for="resultatPreuTotal">Preu total: </label>
+                <input type="text" id="resultatPreuTotal" value="0" readonly/>
+                <label for="resultatPreuHabitacions">Habitacions: </label>
+                <input type="text" id="resultatPreuHabitacions" value="0" readonly/>
+            </div>
+        </main>
+    </body>
+</html>
