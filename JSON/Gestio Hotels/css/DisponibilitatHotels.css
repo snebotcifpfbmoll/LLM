@@ -20,11 +20,15 @@ main {
     margin: 20px 20px;
 }
 
-input, select {
+.filtresCerca input, select {
     margin: 5px;
     padding: 5px;
     border: none;
     border-radius: 2px;
+}
+
+input[type="number"] {
+    width: 30px;
 }
 
 .filtresCerca, .resultatCerca {
@@ -45,17 +49,63 @@ input, select {
 .resultatCerca {
     /* fer que ocupi la resta d'espai */
     /* Solució: https://stackoverflow.com/questions/1260122/expand-a-div-to-fill-the-remaining-width */
-    /*float: none;
-    overflow: hidden;*/
+    float: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
     border: 1px solid red;
+    padding: 5px;
+}
+
+.resultatCerca .resultatHabitacions {
+    flex: 1 1 0px;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio {
+    margin: 10px 5px;
+    padding: 5px 0px;
+    border: 1px solid blue;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .imatgeHab {
+    float: left;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .imatgeHab img {
+    width: 120px;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab {
+    border: 1px solid cyan;
+    float: none;
+    overflow: hidden;
+    padding: 5px 10px;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #titolHotel, #estrellesHotel {
+    display: inline;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #descripcio {
+    margin: 20px;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .seleccionarHab {
+    border: 1px solid green;
+}
+
+.resultatCerca .resultatHabitacions .resultatHabitacio .seleccionarHab p {
+    display: inline;
 }
 
 .resultatPreu {
     border: 1px solid green;
-    padding: 10px;
-    margin: 10px;
-    float: right;
-    width: 200px;
+    flex: 1 1 0px;
+    display: block;
+    padding: 5px;
+    margin: 5px 0px;
+    float: left;
+    max-width: 200px;
     font-size: 18px;
 }
 

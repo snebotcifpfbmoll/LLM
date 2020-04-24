@@ -72,16 +72,52 @@
             </div>
 
             <div class="resultatCerca">
-                <div class="resultatHabitacio">
+                <div class="resultatHabitacions">
+                    <div class="resultatHabitacio">
+                        <div class="imatgeHab">
+                            <img src="https://raw.githubusercontent.com/TomeuC/ProvaPerJon/master/1489763093510.jpg"/>
+                        </div>
+                        <div class="infoHab">
+                            <h2 id="titolHotel">Nom Hotel</h2>
+                            <small id="estrellesHotel">* Estrelles</small>
+                            <p id="descripcioHab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.</p>
+                        </div>
+                        <div class="seleccionarHab">
+                            <p>Preu: x€ | </p>
+                            <label for="seleccionarQuantitat">Quantitat: </label>
+                            <input type="number" id="seleccionarQuantitat" value="0" min="0"/>
+                            <button type="button" onclick="">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <div class="resultatHabitacio">
+                        <div class="imatgeHab">
+                            <img src="https://raw.githubusercontent.com/TomeuC/ProvaPerJon/master/1489763093510.jpg"/>
+                        </div>
+                        <div class="infoHab">
+                            <h2 id="titolHotel">Nom Hotel</h2>
+                            <small id="estrellesHotel">* Estrelles</small>
+                            <p id="descripcioHab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.</p>
+                        </div>
+                        <div class="seleccionarHab">
+                            <p>Preu: x€ | </p>
+                            <label for="seleccionarQuantitat">Quantitat: </label>
+                            <input type="number" id="seleccionarQuantitat" value="0" min="0"/>
+                            <button type="button" onclick="">Seleccionar</button>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Resultat del preu total-->
+                <div class="resultatPreu">
+                    <label for="resultatPreuTotal">Preu total: </label>
+                    <input type="text" id="resultatPreuTotal" value="0" readonly/>
+                    <label for="resultatPreuHabitacions">Habitacions: </label>
+                    <input type="text" id="resultatPreuHabitacions" value="0" readonly/>
+                </div>
+
             </div>
 
-            <div class="resultatPreu">
-                <label for="resultatPreuTotal">Preu total: </label>
-                <input type="text" id="resultatPreuTotal" value="0" readonly/>
-                <label for="resultatPreuHabitacions">Habitacions: </label>
-                <input type="text" id="resultatPreuHabitacions" value="0" readonly/>
-            </div>
         </main>
     </body>
 </html>
