@@ -15,9 +15,21 @@ header {
 }
 
 main {
-    border: 1px solid blue;
     overflow: auto;
     margin: 20px 20px;
+}
+
+input[type="number"] {
+    width: 30px;
+}
+
+.filtresCerca {
+    background-color: #ffa43e;
+    border-radius: 15px;
+}
+
+.filtresError {
+    color: red;
 }
 
 .filtresCerca input, select {
@@ -27,23 +39,32 @@ main {
     border-radius: 2px;
 }
 
-input[type="number"] {
-    width: 30px;
-}
-
 .filtresCerca, .resultatCerca {
     float: left;
     margin: 10px;
     padding: 15px 25px;
 }
 
-.filtresCerca {
-    background-color: #ffa43e;
-    border-radius: 15px;
-}
-
 .filtresCerca label, p, ul {
     margin: 10px 0px 0px;
+}
+
+.filtresCerca ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 15px;
+}
+
+.filtresCerca #cercaBtn {
+    margin-top: 15px;
+    float: right;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color: #383838;
+    width: 95px;
+    height: 35px;
+    font-size: 15px;
 }
 
 .resultatCerca {
@@ -53,7 +74,6 @@ input[type="number"] {
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
     padding: 5px;
 }
 
@@ -62,44 +82,38 @@ input[type="number"] {
 }
 
 .resultatCerca .resultatHabitacions .resultatHabitacio {
-    margin: 10px 5px;
+    margin: 0px 5px 20px;
     padding: 5px 0px;
-    border: 1px solid blue;
-}
-
-.resultatCerca .resultatHabitacions .resultatHabitacio .imatgeHab {
-    float: left;
-}
-
-.resultatCerca .resultatHabitacions .resultatHabitacio .imatgeHab img {
-    width: 120px;
+    overflow: hidden;
+    border: 1px solid red;
 }
 
 .resultatCerca .resultatHabitacions .resultatHabitacio .infoHab {
-    border: 1px solid cyan;
-    float: none;
-    overflow: hidden;
-    padding: 5px 10px;
+    padding: 0px 10px;
 }
 
-.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #titolHotel, #estrellesHotel {
+.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #titolHotel {
     display: inline;
 }
 
-.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #descripcio {
-    margin: 20px;
+.resultatCerca .resultatHabitacions .resultatHabitacio .infoHab #estrellesHotel {
+    display: inline;
+    margin-left: 5px;
 }
 
 .resultatCerca .resultatHabitacions .resultatHabitacio .seleccionarHab {
-    border: 1px solid green;
+    float: right;
+    margin-top: 10px;
+    padding: 0px;
 }
 
 .resultatCerca .resultatHabitacions .resultatHabitacio .seleccionarHab p {
     display: inline;
+    padding-right: 5px;
+    border-right: 1.5px solid #383838;
 }
 
 .resultatPreu {
-    border: 1px solid green;
     flex: 1 1 0px;
     display: block;
     padding: 5px;

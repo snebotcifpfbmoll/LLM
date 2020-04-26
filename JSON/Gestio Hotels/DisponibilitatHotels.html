@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/DisponibilitatHotels.css">
         <script type="text/javascript" src="js/DisponibilitatHotels.js"></script>
     </head>
-    <body>
+    <body onload="init()">
         <header>
             <h1>Reserva d'hotels</h1>
         </header>
@@ -14,7 +14,7 @@
         <!-- Apartat principal -->
         <main>
             <div class="filtresCerca">
-                <h2>Cerca</h2>
+                <h2>Cercador</h2>
                 
                 <label id="lblCercaTemporada" for="cercaTemporada">Temporada: </label>
                 <select id="cercaTemporada">
@@ -24,83 +24,78 @@
 
                 <br/>
                 <label id="lblCercaEstrelles" for="cercaEstrelles">Estrelles: </label>
-                <input type="number" id="cercaEstrelles" min="1" max="5"/>
+                <input type="number" id="cercaEstrelles" value="0" min="1" max="5"/>
 
                 <p>Habitacions</p>
                 <ul>
                     <li>
                         <label id="lblCercaHabitacionIndividuals" for="cercaHabitacionsIndividuals">Individuals: </label>
-                        <input type="number" id="cercaHabitacionsIndividuals" min="0"/>
+                        <input type="number" id="cercaHabitacionsIndividuals" value="0" min="0"/>
                     </li>
                     <li>
                         <label id="lblCercaHabitacionDobles" for="cercaHabitacionsDobles">Dobles: </label>
-                        <input type="number" id="cercaHabitacionsDobles" min="0"/>
+                        <input type="number" id="cercaHabitacionsDobles" value="0" min="0"/>
                     </li>
                 </ul>
 
                 <p>Serveis</p>
                 <ul>
                     <li>
-                        <label id="lblCercaWifi" for="cercaWifi">Wifi: </label>
                         <input type="checkbox" id="cercaWifi"/>
+                        <label id="lblCercaWifi" for="cercaWifi">Wifi</label>
                     </li>
                     <li>
-                        <label id="lblCercaNeteja" for="cercaNeteja">Neteja: </label>
                         <input type="checkbox" id="cercaNeteja"/>
+                        <label id="lblCercaNeteja" for="cercaNeteja">Neteja</label>
                     </li>
                     <li>
-                        <label id="lblCercaMascotes" for="cercaMascotes">Permet mascotes: </label>
                         <input type="checkbox" id="cercaMascotes"/>
+                        <label id="lblCercaMascotes" for="cercaMascotes">Permet mascotes</label>
                     </li>
                 </ul>
 
                 <p>Menjars</p>
                 <ul>
                     <li>
-                        <label id="lblCercaBerenar" for="cercaBerenar">Berenar: </label>
                         <input type="checkbox" id="cercaBerenar"/>
+                        <label id="lblCercaBerenar" for="cercaBerenar">Berenar</label>
                     </li>
                     <li>
-                        <label id="lblCercaDinar" for="cercaDinar">Dinar: </label>
                         <input type="checkbox" id="cercaDinar"/>
+                        <label id="lblCercaDinar" for="cercaDinar">Dinar</label>
                     </li>
                     <li>
-                        <label id="lblCercaSopar" for="cercaSopar">Sopar: </label>
                         <input type="checkbox" id="cercaSopar"/>
+                        <label id="lblCercaSopar" for="cercaSopar">Sopar</label>
                     </li>
                 </ul>
+
+                <button type="button" id="cercaBtn" onclick="cerca()">Cerca</button>
             </div>
 
             <div class="resultatCerca">
                 <div class="resultatHabitacions">
                     <div class="resultatHabitacio">
-                        <div class="imatgeHab">
-                            <img src="https://raw.githubusercontent.com/TomeuC/ProvaPerJon/master/1489763093510.jpg"/>
-                        </div>
                         <div class="infoHab">
                             <h2 id="titolHotel">Nom Hotel</h2>
                             <small id="estrellesHotel">* Estrelles</small>
                             <p id="descripcioHab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.</p>
                         </div>
                         <div class="seleccionarHab">
-                            <p>Preu: x€ | </p>
+                            <p>Preu: x€</p>
                             <label for="seleccionarQuantitat">Quantitat: </label>
                             <input type="number" id="seleccionarQuantitat" value="0" min="0"/>
                             <button type="button" onclick="">Seleccionar</button>
                         </div>
                     </div>
-
                     <div class="resultatHabitacio">
-                        <div class="imatgeHab">
-                            <img src="https://raw.githubusercontent.com/TomeuC/ProvaPerJon/master/1489763093510.jpg"/>
-                        </div>
                         <div class="infoHab">
                             <h2 id="titolHotel">Nom Hotel</h2>
                             <small id="estrellesHotel">* Estrelles</small>
                             <p id="descripcioHab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.</p>
                         </div>
                         <div class="seleccionarHab">
-                            <p>Preu: x€ | </p>
+                            <p>Preu: x€</p>
                             <label for="seleccionarQuantitat">Quantitat: </label>
                             <input type="number" id="seleccionarQuantitat" value="0" min="0"/>
                             <button type="button" onclick="">Seleccionar</button>
