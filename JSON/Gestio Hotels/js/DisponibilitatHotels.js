@@ -135,7 +135,6 @@ function cerca() {
 
             // cream un nou objecte per a poder posar nomes un preu
             let tmp_hab = habitacio;
-            delete tmp_hab.agregadors;
             tmp_hab.preu = preuHab;
             tmp_hotel.habitacions.push(tmp_hab);
         }
@@ -144,7 +143,7 @@ function cerca() {
     }
 
     console.log(tmp_hotels);
-    mostrarHabitacions(1);
+    mostrarHabitacions(tmp_hotels);
 }
 
 function getHotel(id) {
@@ -163,57 +162,65 @@ function getHab(hotel, id) {
 
 function mostrarHabitacions(infoHotels) {
     let container = document.getElementsByClassName("resultatHabitacions")[0];
-    let resHab = document.createElement("div");
-    resHab.classList.add("resultatHabitacio");
+    container.innerHTML = "";
 
-    let infoHab = document.createElement("div");
-    infoHab.classList.add("infoHab");
+    for (var i = 0; i < infoHotels.length; i++) {
+        let hotel = infoHotels[i];
 
-    let titolHotel = document.createElement("h2");
-    titolHotel.setAttribute("id", "titolHotel");
-    titolHotel.innerText = "Test Hotel";
+        for (var j = 0; j < hotel.habitacions.length; j++) {
+            let habitacio = hotel.habitacions[j];
 
-    let estrellesHotel = document.createElement("small");
-    estrellesHotel.setAttribute("id", "estrellesHotel");
-    estrellesHotel.innerText = "5 estrelles";
+            let resHab = document.createElement("div");
+            resHab.classList.add("resultatHabitacio");
+        
+            let infoHab = document.createElement("div");
+            infoHab.classList.add("infoHab");
+        
+            let titolHotel = document.createElement("h2");
+            titolHotel.setAttribute("id", "titolHotel");
+            titolHotel.innerText = hotel.titol;
+        
+            let estrellesHotel = document.createElement("small");
+            estrellesHotel.setAttribute("id", "estrellesHotel");
+            estrellesHotel.innerText = hotel.estrelles + " estrelles";
+        
+            let desc = document.createElement("p");
+            desc.setAttribute("id", "descripcioHab");
+            desc.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.";
+        
+            infoHab.appendChild(titolHotel);
+            infoHab.appendChild(estrellesHotel);
+            infoHab.appendChild(desc);
+        
+            let selecHab = document.createElement("div");
+            selecHab.classList.add("seleccionarHab");
+        
+            let preu = document.createElement("p");
+            preu.innerText = habitacio.preu + "€";
+        
+            let lblSelecQ = document.createElement("label");
+            lblSelecQ.setAttribute("for", "seleccionarQuantitat");
+            lblSelecQ.innerText = "Quantitat: ";
+        
+            let selecQ = document.createElement("input");
+            selecQ.setAttribute("type", "number");
+            selecQ.setAttribute("id", "seleccionarQuantitat");
+            selecQ.setAttribute("value", "0");
+            selecQ.setAttribute("min", "0");
 
-    let desc = document.createElement("p");
-    desc.setAttribute("id", "descripcioHab");
-    desc.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.";
-
-    infoHab.appendChild(titolHotel);
-    infoHab.appendChild(estrellesHotel);
-    infoHab.appendChild(desc);
-
-    let selecHab = document.createElement("div");
-    selecHab.classList.add("seleccionarHab");
-
-    let preu = document.createElement("p");
-    preu.innerText = "15€";
-
-    let lblSelecQ = document.createElement("label");
-    lblSelecQ.setAttribute("for", "seleccionarQuantitat");
-    lblSelecQ.innerText = "Quantitat: ";
-
-    let selecQ = document.createElement("input");
-    selecQ.setAttribute("type", "number");
-    selecQ.setAttribute("id", "seleccionarQuantitat");
-    selecQ.setAttribute("value", "0");
-    selecQ.setAttribute("min", "0");
-
-    let btn = document.createElement("button");
-    btn.setAttribute("type", "button");
-    btn.innerText = "Seleccionar";
-
-    selecHab.appendChild(preu);
-    selecHab.appendChild(lblSelecQ);
-    selecHab.appendChild(selecQ);
-    selecHab.appendChild(btn);
-
-    resHab.appendChild(infoHab);
-    resHab.appendChild(selecHab);
-
-    console.log(resHab);
-
-    container.appendChild(resHab);
+            let btn = document.createElement("button");
+            btn.setAttribute("type", "button");
+            btn.innerText = "Seleccionar";
+        
+            selecHab.appendChild(preu);
+            selecHab.appendChild(lblSelecQ);
+            selecHab.appendChild(selecQ);
+            selecHab.appendChild(btn);
+        
+            resHab.appendChild(infoHab);
+            resHab.appendChild(selecHab);
+        
+            container.appendChild(resHab);
+        }
+    }
 }
