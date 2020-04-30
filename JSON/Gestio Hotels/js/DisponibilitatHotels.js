@@ -1,5 +1,6 @@
 // Variables globals
 var hotels = null;
+var habitacionsSeleccionades = null;
 
 // descarregar json
 function loadJSON(callback) {
@@ -16,10 +17,17 @@ function loadJSON(callback) {
 
 // funcio d'inici
 function init() {
+    netejarCamps();
     loadJSON(function (response) {
         hotels = JSON.parse(response);
         console.log(hotels);
     });
+}
+
+function netejarCamps() {
+    document.getElementById("resultatPreuTotal").value = "0";
+    document.getElementById("resultatPreuHabitacions").value = "0";
+    document.getElementById("jsonHabSeleccionades").value = "";
 }
 
 // comprovar els filtres
@@ -96,6 +104,72 @@ function getPreuBaix(agregadors, temporada) {
     return tmp_preu;
 }
 
+// obtenir la descripcio de la habitacio
+function getDescripcio(habitacio) {
+    console.log(habitacio);
+    let ul = document.createElement("ul");
+
+    {
+        let numeroInd = numeroLlits(habitacio.llits, "individual");
+        if (numeroInd > 0) {
+            let li = document.createElement("li");
+            li.innerHTML = numeroInd + " llits individuals";
+            ul.appendChild(li);
+        }
+
+        let numeroDob = numeroLlits(habitacio.llits, "doble");
+        if (numeroDob > 0) {
+            let li = document.createElement("li");
+            li.innerHTML = numeroDob + " llits dobles";
+            ul.appendChild(li);
+        }
+    }
+
+    {
+        let li = document.createElement("li");
+        li.innerHTML = "Mida: " + habitacio.mida + "m<sup>2</sup>";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.bany) {
+        let li = document.createElement("li");
+        li.innerText = "Inclou bany";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.calefaccio) {
+        let li = document.createElement("li");
+        li.innerText = "Inclou calefacció";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.minibar) {
+        let li = document.createElement("li");
+        li.innerText = "Inclou minibar";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.permet_fumar) {
+        let li = document.createElement("li");
+        li.innerText = "Està permès fumar";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.telefon) {
+        let li = document.createElement("li");
+        li.innerText = "Inclou telèfon";
+        ul.appendChild(li);
+    }
+
+    if (habitacio.tv) {
+        let li = document.createElement("li");
+        li.innerText = "Inclou televisor";
+        ul.appendChild(li);
+    }
+
+    return ul;
+}
+
 // sercar hotels que compleixin amb els filtres
 function cerca() {
     let filtres = comprovarFiltres();
@@ -170,10 +244,11 @@ function mostrarHabitacions(infoHotels) {
             estrellesHotel.setAttribute("id", "estrellesHotel");
             estrellesHotel.innerText = hotel.estrelles + " estrelles";
         
-            let desc = document.createElement("p");
+            let desc = document.createElement("div");
             desc.setAttribute("id", "descripcioHab");
-            desc.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.";
-        
+            desc.appendChild(getDescripcio(habitacio));
+            //desc.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum convallis nisl, ut cursus dui congue a. Aliquam aliquet dolor quis suscipit eleifend. Etiam et vehicula ipsum. Nulla facilisi. Vivamus aliquam condimentum magna, lacinia gravida orci tincidunt eget. Duis at ultrices est. Praesent aliquam, turpis vitae vestibulum dignissim, eros justo tempus felis, in interdum quam risus sed quam. In sit amet sodales neque. Cras leo velit, feugiat vehicula leo id, molestie molestie magna.";
+
             infoHab.appendChild(titolHotel);
             infoHab.appendChild(estrellesHotel);
             infoHab.appendChild(desc);
@@ -284,4 +359,31 @@ function seleccionarHabitacio(hotId, habId) {
     preu_total.value = tmp_preu_total + preu * quant;
     let tmp_nHab = parseInt(nHab.value);
     nHab.value = tmp_nHab + quant;
+
+    // afegir habitacions seleccionades al json del input hidden
+    let jsonHab = document.getElementById("jsonHabSeleccionades");
+    if (jsonHab == null) {
+        console.log("json habitacions no existeix.");
+        return;
+    }
+
+    let obj = jsonHab.value != "" ? JSON.parse(jsonHab.value) : new Array();
+    let newHab = new Object();
+    newHab.quantitat = quant;
+    // feim una copia del objecte hotel i eliminam les propietats que no necessitam
+    newHab.hotel = new Object();
+    newHab.hotel = Object.assign(newHab.hotel, hotel);
+    delete newHab.hotel.habitacions;
+    newHab.habitacio = new Object();
+    newHab.habitacio = Object.assign(newHab.habitacio, habitacio);
+    delete newHab.habitacio.agregadors;
+
+    // afegirm la nova habitacio seleccionada al objecte json i ho afegim al input hidden
+    obj.push(newHab);
+    jsonHab.value = JSON.stringify(obj);
+}
+
+function continuar() {
+    netejarCamps();
+    document.getElementById("dispo").submit();
 }
