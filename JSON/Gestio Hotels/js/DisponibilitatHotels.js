@@ -146,20 +146,6 @@ function cerca() {
     mostrarHabitacions(tmp_hotels);
 }
 
-function getHotel(id) {
-    for (var i = 0; i < hotels.length; i++) {
-        let hotel = hotels[i];
-        if (hotel.id == id) return hotel;
-    }
-}
-
-function getHab(hotel, id) {
-    for (var i = 0; i < hotel.habitacions.length; i++) {
-        let hab = hotel.habitacions[i];
-        if (hab.id == id) return hab;
-    }
-}
-
 function mostrarHabitacions(infoHotels) {
     let container = document.getElementsByClassName("resultatHabitacions")[0];
     container.innerHTML = "";
@@ -196,21 +182,27 @@ function mostrarHabitacions(infoHotels) {
             selecHab.classList.add("seleccionarHab");
         
             let preu = document.createElement("p");
+            preu.setAttribute("preu", habitacio.preu);
+            preu.setAttribute("id", "seleccionarPreu" + hotel.id + "-" + habitacio.id);
             preu.innerText = habitacio.preu + "€";
         
             let lblSelecQ = document.createElement("label");
-            lblSelecQ.setAttribute("for", "seleccionarQuantitat");
+            lblSelecQ.setAttribute("for", "seleccionarQuantitat" + hotel.id + "-" + habitacio.id);
             lblSelecQ.innerText = "Quantitat: ";
         
             let selecQ = document.createElement("input");
             selecQ.setAttribute("type", "number");
-            selecQ.setAttribute("id", "seleccionarQuantitat");
+            selecQ.setAttribute("id", "seleccionarQuantitat" + hotel.id + "-" + habitacio.id);
             selecQ.setAttribute("value", "0");
             selecQ.setAttribute("min", "0");
 
             let btn = document.createElement("button");
             btn.setAttribute("type", "button");
+            btn.setAttribute("onclick", "seleccionarHabitacio(" + hotel.id + ", " + habitacio.id + ")");
             btn.innerText = "Seleccionar";
+
+            let br = document.createElement("br");
+            let hr = document.createElement("hr");
         
             selecHab.appendChild(preu);
             selecHab.appendChild(lblSelecQ);
@@ -219,8 +211,77 @@ function mostrarHabitacions(infoHotels) {
         
             resHab.appendChild(infoHab);
             resHab.appendChild(selecHab);
+            resHab.appendChild(hr);
         
             container.appendChild(resHab);
         }
     }
+}
+
+function getHotel(id) {
+    for (var i = 0; i < hotels.length; i++) {
+        let hotel = hotels[i];
+        if (hotel.id == id) return hotel;
+    }
+
+    return null;
+}
+
+function getHab(hotel, id) {
+    for (var i = 0; i < hotel.habitacions.length; i++) {
+        let hab = hotel.habitacions[i];
+        if (hab.id == id) return hab;
+    }
+
+    return null;
+}
+
+function seleccionarHabitacio(hotId, habId) {
+    let hotel = getHotel(hotId);
+    if (hotel == null) {
+        console.log("no hi ha cap hotel amb id: " + hotId);
+        return;
+    }
+
+    let habitacio = getHab(hotel, habId);
+    if (habitacio == null) {
+        console.log("no hi ha cap habitacio amb id: " + habId);
+        return;
+    }
+
+    let quantElement = document.getElementById("seleccionarQuantitat" + hotId + "-" + habId).value;
+    if (quantElement == null) {
+        console.log("seleccionar quantitat no existeix.");
+        return;
+    } 
+
+    let quant = parseInt(quantElement);
+    if (quant < 1) {
+        console.log("el numero d'habitacions seleccionades es incorrecte");
+        return;
+    }
+
+    let preu = document.getElementById("seleccionarPreu" + hotId + "-" + habId).getAttribute("preu");
+    if (preu == null) {
+        console.log("seleccionar preu no existeix.");
+        return;
+    }
+
+    // actualitzar resultat preu
+    let preu_total = document.getElementById("resultatPreuTotal");
+    if (preu_total == null) {
+        console.log("resultat preu total no existeix.");
+        return;
+    }
+
+    let nHab = document.getElementById("resultatPreuHabitacions");
+    if (nHab == null) {
+        console.log("resultat preu habitacions no existeix.");
+        return;
+    }
+
+    let tmp_preu_total = parseFloat(preu_total.value);
+    preu_total.value = tmp_preu_total + preu * quant;
+    let tmp_nHab = parseInt(nHab.value);
+    nHab.value = tmp_nHab + quant;
 }

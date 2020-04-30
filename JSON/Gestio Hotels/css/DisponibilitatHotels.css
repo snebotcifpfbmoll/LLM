@@ -112,6 +112,12 @@ input[type="number"] {
     border-right: 1.5px solid #383838;
 }
 
+.resultatCerca .resultatHabitacions .resultatHabitacio hr {
+    margin-top: 45px;
+    width: 95%;
+    color: #d8d8d8;
+}
+
 .resultatPreu {
     flex: 1 1 0px;
     display: block;
